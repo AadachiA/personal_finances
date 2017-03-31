@@ -1,0 +1,25 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1444.27
+1, Roots Cafe, -$34.17
+1, Tim Hortons, -$22.97
+3, Safeway, -$6.85
+4, Grandpa, +$74.52
+5, Skytrain, -$15.70
+9, 7-11, -$27.81
+11, Lottery, +$17.38
+11, Safeway, -$33.87
+13, Tim Hortons, -$17.09
+13, Tim Hortons, -$27.02
+15, Triple Os, -$22.44
+15, Skytrain, -$2.63
+16, Skytrain, -$5.17
+17, H&M, -$17.07
+19, All India Sweets, -$11.58
+20, Triple Os, -$18.98
+21, Safeway, -$37.24
+21, Chevron, -$28.58
+23, 7-11, -$14.32
+25, Skytrain, -$20.12
+26, Triple Os, -$19.49

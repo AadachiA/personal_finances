@@ -1,0 +1,13 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1099.49
+1, Grandma, +$51.61
+5, Grandpa, +$21.95
+7, Triple Os, -$13.67
+11, Tim Hortons, -$21.27
+14, Ten Ren Bubble Tea, -$13.39
+18, Tim Hortons, -$13.10
+22, Tim Hortons, -$37.86
+26, H&M, -$17.14
+26, Grandma, +$23.49

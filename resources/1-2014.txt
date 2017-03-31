@@ -1,0 +1,23 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1935.66
+1, H&M, -$28.39
+5, 7-11, -$5.39
+9, H&M, -$7.27
+10, Tim Hortons, -$29.05
+10, Skytrain, -$14.20
+14, Safeway, -$31.58
+14, Triple Os, -$26.67
+14, All India Sweets, -$13.29
+14, Roots Cafe, -$5.66
+18, Safeway, -$37.87
+20, Safeway, -$23.35
+20, 7-11, -$9.30
+23, All India Sweets, -$9.70
+23, Triple Os, -$32.77
+24, H&M, -$24.33
+25, Chevron, -$28.41
+25, H&M, -$31.27
+25, Chevron, -$12.37
+28, Roots Cafe, -$25.88

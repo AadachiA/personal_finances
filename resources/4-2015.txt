@@ -1,0 +1,19 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1171.76
+1, H&M, -$15.36
+2, Triple Os, -$2.24
+2, Ten Ren Bubble Tea, -$6.72
+6, H&M, -$31.83
+10, 7-11, -$28.98
+13, Roots Cafe, -$11.96
+14, Safeway, -$25.28
+15, Tim Hortons, -$38.85
+15, Roots Cafe, -$5.22
+16, Chevron, -$25.24
+19, H&M, -$12.26
+22, Grandpa, +$26.69
+24, Ten Ren Bubble Tea, -$10.31
+27, Safeway, -$24.07
+27, Roots Cafe, -$22.28

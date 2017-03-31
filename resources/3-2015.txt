@@ -1,0 +1,17 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1628.21
+1, Roots Cafe, -$17.64
+3, Tim Hortons, -$27.15
+7, All India Sweets, -$17.06
+8, H&M, -$13.86
+11, Chevron, -$25.07
+12, Transfer from roommates, +$25.33
+13, Grandpa, +$52.82
+17, Ten Ren Bubble Tea, -$9.15
+19, Chevron, -$30.27
+22, Tim Hortons, -$19.42
+24, 7-11, -$3.34
+24, Skytrain, -$28.87
+28, Roots Cafe, -$25.25

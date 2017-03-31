@@ -1,0 +1,15 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1772.95
+1, All India Sweets, -$18.56
+3, Chevron, -$14.39
+5, All India Sweets, -$30.71
+9, Tim Hortons, -$8.93
+12, 7-11, -$36.45
+16, Triple Os, -$28.40
+17, Tim Hortons, -$23.20
+21, Chevron, -$22.19
+22, Roots Cafe, -$19.15
+26, Roots Cafe, -$17.61
+26, Triple Os, -$31.74

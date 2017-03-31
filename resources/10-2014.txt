@@ -1,0 +1,21 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1167.43
+1, Safeway, -$30.25
+2, Chevron, -$25.75
+3, Chevron, -$18.15
+6, Triple Os, -$32.83
+6, Ten Ren Bubble Tea, -$38.12
+8, All India Sweets, -$17.46
+11, Skytrain, -$30.22
+13, 7-11, -$28.66
+17, Triple Os, -$6.23
+21, H&M, -$37.58
+21, Tim Hortons, -$10.65
+23, Ten Ren Bubble Tea, -$4.76
+24, Tim Hortons, -$3.24
+25, Ten Ren Bubble Tea, -$38.68
+25, Chevron, -$24.14
+26, Ten Ren Bubble Tea, -$23.60
+28, Chevron, -$24.26

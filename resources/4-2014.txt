@@ -1,0 +1,14 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1253.02
+1, Ten Ren Bubble Tea, -$3.36
+4, Tim Hortons, -$6.51
+7, H&M, -$11.77
+7, Triple Os, -$30.25
+7, Skytrain, -$32.18
+11, Tim Hortons, -$38.28
+14, Ten Ren Bubble Tea, -$31.88
+18, All India Sweets, -$9.83
+22, Safeway, -$3.27
+26, Skytrain, -$22.15

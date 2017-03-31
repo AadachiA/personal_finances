@@ -1,0 +1,17 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1791.11
+1, All India Sweets, -$11.20
+2, Craigslist, +$45.15
+2, Triple Os, -$14.69
+4, Roots Cafe, -$20.16
+5, Chevron, -$32.89
+9, Craigslist, +$73.13
+12, Grandma, +$29.47
+16, Roots Cafe, -$32.96
+17, Ten Ren Bubble Tea, -$34.65
+19, H&M, -$21.57
+22, Ten Ren Bubble Tea, -$34.61
+25, Ten Ren Bubble Tea, -$24.65
+27, Roots Cafe, -$27.56

@@ -1,0 +1,20 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1542.24
+1, Grandpa, +$36.63
+2, Tim Hortons, -$7.06
+5, Chevron, -$33.15
+6, 7-11, -$23.33
+8, Triple Os, -$22.15
+8, Safeway, -$17.12
+12, Transfer from roommates, +$68.24
+16, Skytrain, -$38.67
+18, H&M, -$21.26
+18, H&M, -$24.17
+18, Ten Ren Bubble Tea, -$16.24
+20, Skytrain, -$24.87
+22, Tim Hortons, -$28.54
+25, Triple Os, -$36.72
+25, Safeway, -$38.43
+26, Roots Cafe, -$11.36

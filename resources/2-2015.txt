@@ -1,0 +1,15 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1602.27
+1, H&M, -$26.17
+1, Chevron, -$38.62
+5, Triple Os, -$32.84
+8, Safeway, -$19.23
+9, Triple Os, -$7.60
+12, Grandma, +$96.93
+14, Transfer from roommates, +$69.31
+18, Lottery, +$25.31
+22, Grandpa, +$75.78
+23, H&M, -$3.30
+25, Triple Os, -$34.24

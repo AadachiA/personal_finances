@@ -1,0 +1,17 @@
+Day, Item, Cost
+1, Rent, -$550.00
+1, Utilities, -$30.00
+1, Work Monthly Pay, +$1310.31
+1, Skytrain, -$25.72
+3, Roots Cafe, -$20.16
+3, Roots Cafe, -$16.41
+7, Chevron, -$39.41
+7, Transfer from roommates, +$83.49
+11, Tim Hortons, -$2.40
+14, Triple Os, -$34.15
+16, Triple Os, -$7.13
+18, Roots Cafe, -$32.83
+22, Safeway, -$35.23
+26, Triple Os, -$8.66
+26, 7-11, -$17.15
+28, Skytrain, -$2.05
