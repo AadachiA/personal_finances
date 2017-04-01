@@ -16,7 +16,7 @@ import java.io.File;
 public class SummarizeFinances{
 
 	private static final String RESOURCES_PATH 		= "resources/"; // TODO: Change to finances
-	private static final String OUTPUT_PATH 		= "out/";
+	private static final String OUTPUT_PATH 		= "outtest/"; // TODO: Change to final path
 	private static final String FILENAME 	 		= "_summary.txt";
 	private static final String COLUMNS_LAYOUT 		= "%-11s %-11s\n";
 	private static final String COLUMN_A 			= "Month";
@@ -24,18 +24,79 @@ public class SummarizeFinances{
 	private static final String DECORATION_LINE 	= "===================================";
 	private static final String HEADER_COLUMNS		= String.format(COLUMNS_LAYOUT, COLUMN_A, COLUMN_B);
 	private static final String HEADER 				= HEADER_COLUMNS + DECORATION_LINE;
+	private static final String[] MONTHS            = {"January", "February", "March", "April", "May", "June", "July",
+                                                        "August", "September", "October", "November", "December"};
+
 
 	/**
 	 * @param args          The program arguments.
 	 * @throws IOException  An IOException.
 	 */
 	public static void main(String[] args) throws IOException {
-
-		/*String filename = 2013 + FILENAME;
-		String columnA 	= "columnA";
-		String columnB 	= "columnB";
-		submitToFile(filename, columnA, columnB);*/
+		readDirectory(RESOURCES_PATH);
 	}
+
+    /**
+     *
+     * @param path
+     */
+	private static void readDirectory(String path) throws IOException {
+
+        File directory = new File(path);
+
+        for(File file: directory.listFiles()) {
+            if (file.isFile())
+                parseFile(file); // TODO: Try to fix the order
+        }
+    }
+
+    /**
+     * Helper
+     * @param file
+     * @throws IOException An IOException.
+     */
+    private static void parseFile(File file) throws IOException {
+
+    	// TODO: Refactor
+        String filename     = file.getName();
+        int dashSign        = filename.indexOf('-');
+        int pointSign       = filename.indexOf('.');
+        int month           = Integer.parseInt(filename.substring(0, dashSign));
+        int year            = Integer.parseInt(filename.substring(dashSign + 1, pointSign));
+        float total_cost    = 0;
+
+        Scanner scanner     = new Scanner(file);
+        String pattern  = "(\\-|\\+)(\\$\\d+\\.\\d+)";
+
+        while(scanner.hasNext()) {
+            if(scanner.hasNext(pattern))
+                total_cost += translateCostColumn(scanner.next());
+            else
+                scanner.next();
+        }
+
+        // TODO: EXternal method
+        String filename2 = year + FILENAME;
+        String columnA 	= MONTHS[month-1];
+        String columnB 	= "" + total_cost;
+
+        System.out.printf("%s %s %s\n", filename2, columnA, columnB);
+        submitToFile(filename2, columnA, columnB);
+    }
+
+    /**
+     * Helper
+     * @param data
+     * @return
+     * @throws IOException
+     */
+    private static float translateCostColumn(String data) throws IOException {
+
+        char sign   = data.charAt(0);
+        float cost  = Float.parseFloat(data.substring(2, data.length()));
+
+        return (sign == '+')? +cost: -cost;
+    }
 
 	/**
 	 * This method submits the text inside the specified file.
