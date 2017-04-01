@@ -3,6 +3,16 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.File;
 
+/**
+ * Personal Finances
+ * File processing program, to summarize personal finances.
+ * The program read from monthly transaction files, and create a summary file for each year.
+ * Each summary file lists the year, and the net financial gain (or loss) for each month in that year.
+ *
+ * @author  Ayaka Adachi [ID:100225327, Sec:005]
+ * @author  Sergio Berlinches [ID:100291288, Sec:005]
+ * @since   2017-03-31
+ */
 public class SummarizeFinances{
 
 	private static final String RESOURCES_PATH 		= "resources/"; // TODO: Change to finances
@@ -16,9 +26,8 @@ public class SummarizeFinances{
 	private static final String HEADER 				= HEADER_COLUMNS + DECORATION_LINE;
 
 	/**
-	 *
-	 * @param args
-	 * @throws IOException
+	 * @param args          The program arguments.
+	 * @throws IOException  An IOException.
 	 */
 	public static void main(String[] args) throws IOException {
 
@@ -30,11 +39,14 @@ public class SummarizeFinances{
 	}
 
 	/**
-	 *
-	 * @param filename
-	 * @param columnA
-	 * @param ColumnB
-	 * @throws IOException
+	 * This method submits the text inside the specified file.
+     * If the file doesn't exist, It's created.
+     * If the directory doesn't exists, It's created.
+     *
+	 * @param filename      The name of the file.
+	 * @param columnA       The text to be inserted on the left column
+	 * @param ColumnB       The text to be inserted on the right column
+	 * @throws IOException  An IOException.
 	 */
 	private static void submitToFile(String filename, String columnA, String ColumnB) throws IOException {
 
@@ -42,22 +54,24 @@ public class SummarizeFinances{
 
 		if(directory.exists()) {
 
-			String pathname = OUTPUT_PATH + filename;
-			File file 		= createFile(pathname);
+		    String path     = OUTPUT_PATH + filename;
+		    String string   = String.format(COLUMNS_LAYOUT, columnA, ColumnB);
+			File file       = createFile(OUTPUT_PATH, filename);
 
 			if(file.exists())
-				writeOnFile(pathname, String.format(COLUMNS_LAYOUT, columnA, ColumnB));
+				writeOnFile(path, string);
 		}
 	}
 
 	/**
-	 *
-	 * @param pathname
-	 * @return
+	 * This method creates physically the directory where the file will be allocated.
+     *
+	 * @param path  The directory path (path + directory name).
+	 * @return      The object file.
 	 */
-	private static File createDirectory(String pathname) {
+	private static File createDirectory(String path) {
 
-		File directory = new File(pathname);
+		File directory = new File(path);
 
 		if(!directory.exists() || !directory.isDirectory()) {
 			if(!directory.mkdir()) {
@@ -70,14 +84,16 @@ public class SummarizeFinances{
 	}
 
 	/**
-	 *
-	 * @param pathname
-	 * @return
-	 * @throws IOException
+	 * This method creates physically the file.
+     *
+	 * @param path          The destination path (path + directory name).
+     * @param filename      The filename.
+	 * @return              The object file.
+	 * @throws IOException  An IOException.
 	 */
-	private static File createFile(String pathname) throws IOException {
+	private static File createFile(String path, String filename) throws IOException {
 
-		File file = new File(pathname);
+		File file = new File(path + filename);
 
 		if(!file.exists()) {
 			if(!file.createNewFile()) {
@@ -85,32 +101,47 @@ public class SummarizeFinances{
 				System.exit(1);
 			}
 			else
-				writeOnFile(pathname, HEADER);
+				writeOnFile(path + filename, HEADER);
 		}
 
 		return file;
 	}
 
 	/**
-	 *
-	 * @param pathname
-	 * @param string
-	 * @throws IOException
+	 * This method writes at the end of the file.
+     *
+	 * @param path          The path where the file is allocated (path + filename).
+	 * @param string        The text to be added.
+	 * @throws IOException  An IOException.
 	 */
-	private static void writeOnFile(String pathname, String string) throws IOException {
+	private static void writeOnFile(String path, String string) throws IOException {
 
-		File file 			= new File(pathname);
-		Scanner scanner 	= new Scanner(file);
-		String prevContent 	= "";
-
-		while(scanner.hasNextLine()) {
-			prevContent += scanner.nextLine() + "\n";
-		}
-
+		File file 			    = new File(path);
+        String fileContent      = getFileContent(file);
 		PrintWriter printWriter = new PrintWriter(file);
-		printWriter.print(prevContent);
+
+		printWriter.print(fileContent);
 		printWriter.print(string);
 		printWriter.close();
-		scanner.close();
 	}
+
+    /**
+     * This method scans and returns all the content of a file.
+     *
+     * @param file          The file to be scanned.
+     * @return              The content of the file.
+     * @throws IOException  An IOException.
+     */
+	private static String getFileContent(File file) throws IOException {
+
+        Scanner scanner 	= new Scanner(file);
+        String prevContent 	= "";
+
+        while(scanner.hasNextLine()) {
+            prevContent += scanner.nextLine() + "\n";
+        }
+
+        scanner.close();
+        return prevContent;
+    }
 }
