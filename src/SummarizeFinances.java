@@ -31,11 +31,10 @@ public class SummarizeFinances{
 	 */
 	public static void main(String[] args) throws IOException {
 
-		String filename = 2013 + FILENAME;
+		/*String filename = 2013 + FILENAME;
 		String columnA 	= "columnA";
 		String columnB 	= "columnB";
-
-		submitToFile(filename, columnA, columnB);
+		submitToFile(filename, columnA, columnB);*/
 	}
 
 	/**
