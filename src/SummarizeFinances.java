@@ -27,7 +27,6 @@ public class SummarizeFinances{
 	private static final String[] MONTHS            = {"January", "February", "March", "April", "May", "June", "July",
                                                         "August", "September", "October", "November", "December"};
 
-
 	/**
 	 * @param args          The program arguments.
 	 * @throws IOException  An IOException.
@@ -37,8 +36,11 @@ public class SummarizeFinances{
 	}
 
     /**
-     *
-     * @param path
+     * This method:
+	 * 1. Reads all the files inside a directory.
+	 * 2. Parses the content of each file.
+	 *
+     * @param path The directory path.
      */
 	private static void readDirectory(String path) throws IOException {
 
@@ -51,52 +53,93 @@ public class SummarizeFinances{
     }
 
     /**
-     * Helper
-     * @param file
-     * @throws IOException An IOException.
+     * This method:
+	 * 1. Parses the content of the file.
+	 * 		1.1 Captures the costData, parses, and summarizes.
+	 * 2. Submits the results to new files.
+	 *
+     * @param file 			The file object to be parsed.
+     * @throws IOException 	An IOException.
      */
     private static void parseFile(File file) throws IOException {
 
-    	// TODO: Refactor
-        String filename     = file.getName();
-        int dashSign        = filename.indexOf('-');
-        int pointSign       = filename.indexOf('.');
-        int month           = Integer.parseInt(filename.substring(0, dashSign));
-        int year            = Integer.parseInt(filename.substring(dashSign + 1, pointSign));
-        float total_cost    = 0;
-
         Scanner scanner     = new Scanner(file);
-        String pattern  = "(\\-|\\+)(\\$\\d+\\.\\d+)";
+        String pattern  	= "(\\-|\\+)(\\$\\d+\\.\\d+)";
+		float totalCost 	= 0;
 
         while(scanner.hasNext()) {
             if(scanner.hasNext(pattern))
-                total_cost += translateCostColumn(scanner.next());
+                totalCost += parseCostData(scanner.next());
             else
                 scanner.next();
         }
 
-        // TODO: EXternal method
-        String filename2 = year + FILENAME;
-        String columnA 	= MONTHS[month-1];
-        String columnB 	= "" + total_cost;
+        String filename 		= file.getName();
+		String targetFilename 	= prepareTargetFilename(filename);
+        String columnA 			= prepareColumnA(filename);
+        String columnB 			= prepareColumnB(totalCost);
 
-        System.out.printf("%s %s %s\n", filename2, columnA, columnB);
-        submitToFile(filename2, columnA, columnB);
+        submitToFile(targetFilename, columnA, columnB);
     }
 
-    /**
-     * Helper
-     * @param data
-     * @return
-     * @throws IOException
-     */
-    private static float translateCostColumn(String data) throws IOException {
+	/**
+	 * This method parses the cost data token, and converts it into a float.
+	 *
+	 * @param costData 		The cost data.
+	 * @return				The cost data as float.
+	 */
+	private static float parseCostData(String costData) {
 
-        char sign   = data.charAt(0);
-        float cost  = Float.parseFloat(data.substring(2, data.length()));
+		char sign   = costData.charAt(0);
+		float cost  = Float.parseFloat(costData.substring(2, costData.length()));
 
-        return (sign == '+')? +cost: -cost;
-    }
+		return (sign == '+')? +cost: -cost;
+	}
+
+	/**
+	 * This method prepares the target filename.
+	 * E.g. yyyy_summary.txt
+	 *
+	 * @param filename 	The filename of the current file.
+	 * @return 			The final target filename.
+	 */
+	private static String prepareTargetFilename(String filename) {
+
+		int dashSign 	= filename.indexOf('-');
+		int pointSign   = filename.indexOf('.');
+		String year     = filename.substring(dashSign + 1, pointSign);
+
+		return year + FILENAME;
+	}
+
+	/**
+	 * This method prepares how the data on column A must look like.
+	 * E.g. November
+	 *
+	 * @param filename 	The filename of the current file.
+	 * @return 			The final column A data.
+	 */
+    private static String prepareColumnA(String filename) {
+
+		int dashSign 	= filename.indexOf('-');
+		int monthIndex  = Integer.parseInt(filename.substring(0, dashSign));
+
+		return MONTHS[monthIndex - 1];
+	}
+
+	/**
+	 * This method prepares how the data on column B must look like.
+	 * E.g. +$34.69
+	 *
+	 * @param totalCost The raw data.
+	 * @return 			The final column B data.
+	 */
+	private static String prepareColumnB(float totalCost) {
+		if(totalCost > 0)
+			return "+$" + String.format("%.2f", totalCost);
+		else
+			return "-$" + String.format("%.2f", -totalCost);
+	}
 
 	/**
 	 * This method submits the text inside the specified file.
@@ -144,7 +187,7 @@ public class SummarizeFinances{
 	}
 
 	/**
-	 * This method creates physically the file.
+	 * This method creates physically the file, and writes the header on it.
      *
 	 * @param path          The destination path (path + directory name).
      * @param filename      The filename.
