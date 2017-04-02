@@ -11,13 +11,13 @@ import java.io.File;
  *
  * @author  Ayaka Adachi [ID:100225327, Sec:005]
  * @author  Sergio Berlinches [ID:100291288, Sec:005]
- * @since   2017-03-31
+ * @since   2017-04-01
  */
 public class SummarizeFinances{
 
-	private static final String RESOURCES_PATH 		= "resources/"; // TODO: Change to finances
-	private static final String OUTPUT_PATH 		= "outtest/"; // TODO: Change to final path
-	private static final String FILENAME 	 		= "_summary.txt";
+	private static final String RESOURCES_PATH 		= "Finances/";
+	private static final String OUTPUT_PATH 		= "out/";
+	private static final String OUTPUT_FILENAME 	= "_summary.txt";
 	private static final String COLUMNS_LAYOUT 		= "%-11s %-11s\n";
 	private static final String COLUMN_A 			= "Month";
 	private static final String COLUMN_B 			= "Net Earning/Spending";
@@ -48,7 +48,7 @@ public class SummarizeFinances{
 
         for(File file: directory.listFiles()) {
             if (file.isFile())
-                parseFile(file); // TODO: Try to fix the order
+                parseFile(file);
         }
     }
 
@@ -73,6 +73,7 @@ public class SummarizeFinances{
             else
                 scanner.next();
         }
+        scanner.close();
 
         String filename 		= file.getName();
 		String targetFilename 	= prepareTargetFilename(filename);
@@ -109,7 +110,7 @@ public class SummarizeFinances{
 		int pointSign   = filename.indexOf('.');
 		String year     = filename.substring(dashSign + 1, pointSign);
 
-		return year + FILENAME;
+		return year + OUTPUT_FILENAME;
 	}
 
 	/**
